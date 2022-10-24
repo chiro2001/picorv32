@@ -29,7 +29,16 @@ uint32_t *irq(uint32_t *regs, uint32_t irqs)
 				print_hex(instr, 8);
 			else
 				print_hex(instr, 4);
+			print_str(", ");
+			print_str("irq = 0x");
+			print_hex(irqs, 8);
 			print_str("\n");
+			if (irqs == 1) {
+				print_str("1\n");
+			}
+			if (irqs == 2) {
+				print_str("2\n");
+			}
 			__asm__ volatile ("ebreak");
 		}
 	}

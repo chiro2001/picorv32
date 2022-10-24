@@ -39,7 +39,7 @@ module testbench;
 		.STACKADDR('h10000),
 		.ENABLE_TRACE(1),
 		.ENABLE_IRQ(1),
-		.PROGADDR_IRQ(32'h10000)
+		.PROGADDR_IRQ('h10000 + (4 * 4))
 	) uut (
 		.clk         (clk        ),
 		.resetn      (resetn     ),
@@ -96,11 +96,12 @@ module testbench;
 
 	initial begin
 		#1600
-		irq <= 1;
+		// irq <= 'b10;
+		irq <= 'b1;
 		#32
 		irq <= 0;
-		#3200
-		trap <= 1;
+		// #3200
+		// trap <= 1;
 	end
 
 	integer trace_file;
