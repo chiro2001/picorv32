@@ -5,12 +5,12 @@
 // binary, for any purpose, commercial or non-commercial, and by any
 // means.
 
-#define ENABLE_QREGS
+// #define ENABLE_QREGS
 #define ENABLE_HELLO
-#define ENABLE_RVTST
-#define ENABLE_SIEVE
-#define ENABLE_MULTST
-#define ENABLE_STATS
+// #define ENABLE_RVTST
+// #define ENABLE_SIEVE
+// #define ENABLE_MULTST
+// #define ENABLE_STATS
 
 #ifndef ENABLE_QREGS
 #  undef ENABLE_RVTST

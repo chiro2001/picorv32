@@ -1,7 +1,9 @@
 USE_MYSTDLIB = 0
 OBJS = dhry_1.o dhry_2.o stdlib.o
 CFLAGS = -MD -O3 -mabi=ilp32 -march=rv32im -DTIME -DRISCV
-TOOLCHAIN_PREFIX = /opt/riscv32im/bin/riscv32-unknown-elf-
+# TOOLCHAIN_PREFIX = /opt/riscv32im/bin/riscv32-unknown-elf-
+TOOLCHAIN_PREFIX = riscv-none-embed-
+# TOOLCHAIN_PREFIX = riscv32-unknown-elf-
 
 ifeq ($(USE_MYSTDLIB),1)
 CFLAGS += -DUSE_MYSTDLIB -ffreestanding -nostdlib
