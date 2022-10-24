@@ -698,61 +698,62 @@ module picorv32 #(
 	`FORMAL_KEEP reg dbg_rs2val_valid;
 
 	always @* begin
-		new_ascii_instr = "";
+		// new_ascii_instr = "";
+		new_ascii_instr = 0;
 
-		if (instr_lui)      new_ascii_instr = "lui";
-		if (instr_auipc)    new_ascii_instr = "auipc";
-		if (instr_jal)      new_ascii_instr = "jal";
-		if (instr_jalr)     new_ascii_instr = "jalr";
+	// 	if (instr_lui)      new_ascii_instr = "lui";
+	// 	if (instr_auipc)    new_ascii_instr = "auipc";
+	// 	if (instr_jal)      new_ascii_instr = "jal";
+	// 	if (instr_jalr)     new_ascii_instr = "jalr";
 
-		if (instr_beq)      new_ascii_instr = "beq";
-		if (instr_bne)      new_ascii_instr = "bne";
-		if (instr_blt)      new_ascii_instr = "blt";
-		if (instr_bge)      new_ascii_instr = "bge";
-		if (instr_bltu)     new_ascii_instr = "bltu";
-		if (instr_bgeu)     new_ascii_instr = "bgeu";
+	// 	if (instr_beq)      new_ascii_instr = "beq";
+	// 	if (instr_bne)      new_ascii_instr = "bne";
+	// 	if (instr_blt)      new_ascii_instr = "blt";
+	// 	if (instr_bge)      new_ascii_instr = "bge";
+	// 	if (instr_bltu)     new_ascii_instr = "bltu";
+	// 	if (instr_bgeu)     new_ascii_instr = "bgeu";
 
-		if (instr_lb)       new_ascii_instr = "lb";
-		if (instr_lh)       new_ascii_instr = "lh";
-		if (instr_lw)       new_ascii_instr = "lw";
-		if (instr_lbu)      new_ascii_instr = "lbu";
-		if (instr_lhu)      new_ascii_instr = "lhu";
-		if (instr_sb)       new_ascii_instr = "sb";
-		if (instr_sh)       new_ascii_instr = "sh";
-		if (instr_sw)       new_ascii_instr = "sw";
+	// 	if (instr_lb)       new_ascii_instr = "lb";
+	// 	if (instr_lh)       new_ascii_instr = "lh";
+	// 	if (instr_lw)       new_ascii_instr = "lw";
+	// 	if (instr_lbu)      new_ascii_instr = "lbu";
+	// 	if (instr_lhu)      new_ascii_instr = "lhu";
+	// 	if (instr_sb)       new_ascii_instr = "sb";
+	// 	if (instr_sh)       new_ascii_instr = "sh";
+	// 	if (instr_sw)       new_ascii_instr = "sw";
 
-		if (instr_addi)     new_ascii_instr = "addi";
-		if (instr_slti)     new_ascii_instr = "slti";
-		if (instr_sltiu)    new_ascii_instr = "sltiu";
-		if (instr_xori)     new_ascii_instr = "xori";
-		if (instr_ori)      new_ascii_instr = "ori";
-		if (instr_andi)     new_ascii_instr = "andi";
-		if (instr_slli)     new_ascii_instr = "slli";
-		if (instr_srli)     new_ascii_instr = "srli";
-		if (instr_srai)     new_ascii_instr = "srai";
+	// 	if (instr_addi)     new_ascii_instr = "addi";
+	// 	if (instr_slti)     new_ascii_instr = "slti";
+	// 	if (instr_sltiu)    new_ascii_instr = "sltiu";
+	// 	if (instr_xori)     new_ascii_instr = "xori";
+	// 	if (instr_ori)      new_ascii_instr = "ori";
+	// 	if (instr_andi)     new_ascii_instr = "andi";
+	// 	if (instr_slli)     new_ascii_instr = "slli";
+	// 	if (instr_srli)     new_ascii_instr = "srli";
+	// 	if (instr_srai)     new_ascii_instr = "srai";
 
-		if (instr_add)      new_ascii_instr = "add";
-		if (instr_sub)      new_ascii_instr = "sub";
-		if (instr_sll)      new_ascii_instr = "sll";
-		if (instr_slt)      new_ascii_instr = "slt";
-		if (instr_sltu)     new_ascii_instr = "sltu";
-		if (instr_xor)      new_ascii_instr = "xor";
-		if (instr_srl)      new_ascii_instr = "srl";
-		if (instr_sra)      new_ascii_instr = "sra";
-		if (instr_or)       new_ascii_instr = "or";
-		if (instr_and)      new_ascii_instr = "and";
+	// 	if (instr_add)      new_ascii_instr = "add";
+	// 	if (instr_sub)      new_ascii_instr = "sub";
+	// 	if (instr_sll)      new_ascii_instr = "sll";
+	// 	if (instr_slt)      new_ascii_instr = "slt";
+	// 	if (instr_sltu)     new_ascii_instr = "sltu";
+	// 	if (instr_xor)      new_ascii_instr = "xor";
+	// 	if (instr_srl)      new_ascii_instr = "srl";
+	// 	if (instr_sra)      new_ascii_instr = "sra";
+	// 	if (instr_or)       new_ascii_instr = "or";
+	// 	if (instr_and)      new_ascii_instr = "and";
 
-		if (instr_rdcycle)  new_ascii_instr = "rdcycle";
-		if (instr_rdcycleh) new_ascii_instr = "rdcycleh";
-		if (instr_rdinstr)  new_ascii_instr = "rdinstr";
-		if (instr_rdinstrh) new_ascii_instr = "rdinstrh";
+	// 	if (instr_rdcycle)  new_ascii_instr = "rdcycle";
+	// 	if (instr_rdcycleh) new_ascii_instr = "rdcycleh";
+	// 	if (instr_rdinstr)  new_ascii_instr = "rdinstr";
+	// 	if (instr_rdinstrh) new_ascii_instr = "rdinstrh";
 
-		if (instr_getq)     new_ascii_instr = "getq";
-		if (instr_setq)     new_ascii_instr = "setq";
-		if (instr_retirq)   new_ascii_instr = "retirq";
-		if (instr_maskirq)  new_ascii_instr = "maskirq";
-		if (instr_waitirq)  new_ascii_instr = "waitirq";
-		if (instr_timer)    new_ascii_instr = "timer";
+	// 	if (instr_getq)     new_ascii_instr = "getq";
+	// 	if (instr_setq)     new_ascii_instr = "setq";
+	// 	if (instr_retirq)   new_ascii_instr = "retirq";
+	// 	if (instr_maskirq)  new_ascii_instr = "maskirq";
+	// 	if (instr_waitirq)  new_ascii_instr = "waitirq";
+	// 	if (instr_timer)    new_ascii_instr = "timer";
 	end
 
 	reg [63:0] q_ascii_instr;
